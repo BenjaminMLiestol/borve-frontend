@@ -113,7 +113,7 @@ export const OrderComponent = () => {
 	useEffect(() => {
 		fetchOrders();
 		fetchCustomers();
-	}, []);
+	});
 
 	return (
 		<div className="sm:pt-20 pt-5">
@@ -208,7 +208,7 @@ export const OrderComponent = () => {
 	);
 };
 
-export const Route = createFileRoute("/Orders")({
+export const Route = createFileRoute("/orders")({
 	component: OrderComponent,
 	beforeLoad: async ({ location }) => {
 		const isAuthenticated =

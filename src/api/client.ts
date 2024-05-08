@@ -3,9 +3,7 @@ import { toast } from "react-toastify";
 
 const isDev = import.meta.env.MODE === "development";
 
-const backend = isDev
-	? import.meta.env.VITE_BFF_URL_DEV
-	: import.meta.env.VITE_BFF_URL_PROD;
+const backend = isDev ? import.meta.env.VITE_BFF_URL_DEV : import.meta.env.VITE_BFF_URL_PROD;
 
 export const client = axios.create({
 	baseURL: backend,

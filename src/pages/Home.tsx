@@ -72,7 +72,7 @@ export const HomeComponent = () => {
 	);
 };
 
-export const Route = createFileRoute("/Home")({
+export const Route = createFileRoute("/home")({
 	component: HomeComponent,
 	beforeLoad: async ({ location }) => {
 		const isAuthenticated =

@@ -32,7 +32,7 @@ export const NavbarComponent = () => {
 			<div className="hidden sm:flex">
 				<Navbar>
 					<NavbarBrand>
-						<p className="font-bold text-inherit">FIRMATAXI</p>
+						<p className="font-bold text-inherit">Børve spyling AS</p>
 					</NavbarBrand>
 					<NavbarContent className="flex gap-4" justify="center"></NavbarContent>
 					<NavbarContent justify="end">

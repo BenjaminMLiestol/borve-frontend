@@ -64,7 +64,7 @@ const Customers = () => {
 
 	useEffect(() => {
 		fetchCustomers();
-	}, []);
+	});
 
 	return (
 		<div className="sm:pt-20 pt-5">
@@ -166,7 +166,7 @@ const Customers = () => {
 	);
 };
 
-export const Route = createFileRoute("/Customers")({
+export const Route = createFileRoute("/customers")({
 	component: Customers,
 	beforeLoad: async ({ location }) => {
 		const isAuthenticated =

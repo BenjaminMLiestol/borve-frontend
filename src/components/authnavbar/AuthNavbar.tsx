@@ -18,9 +18,9 @@ import { useTheme } from "next-themes";
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { cn } from "./cn";
 import Sidebar from "./sidebar";
 import { sectionItemsWithTeams } from "./sidebar-items";
-import { cn } from "./cn";
 
 export const AuthNavBarComponent = ({}: {
 	children?: React.ReactNode;

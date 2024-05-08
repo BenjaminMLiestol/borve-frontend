@@ -41,7 +41,7 @@ export const NewOrder = ({ isOpen, customers, onOpenChange }: OrderDetailsProps)
 		mode: "all",
 	});
 
-	const onSubmit = async (data: any) => {
+	const onSubmit = async (data: CreateOrderRequest) => {
 		const start_time = formatDateTime(data.start_time);
 		const request = {
 			...data,
