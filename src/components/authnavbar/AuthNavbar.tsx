@@ -15,18 +15,13 @@ import {
 } from "@nextui-org/react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useTheme } from "next-themes";
-import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { cn } from "./cn";
 import Sidebar from "./sidebar";
 import { sectionItemsWithTeams } from "./sidebar-items";
 
-export const AuthNavBarComponent = ({}: {
-	children?: React.ReactNode;
-	header?: React.ReactNode;
-	title?: string;
-}) => {
+export const AuthNavBarComponent = () => {
 	const auth = useSelector(selectAuthState);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
