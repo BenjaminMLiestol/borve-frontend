@@ -41,7 +41,8 @@ export const NewOrder = ({ isOpen, customers, onOpenChange }: OrderDetailsProps)
 		mode: "all",
 	});
 
-	const onSubmit = async (data: CreateOrderRequest) => {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const onSubmit = async (data: any) => {
 		const start_time = formatDateTime(data.start_time);
 		const request = {
 			...data,

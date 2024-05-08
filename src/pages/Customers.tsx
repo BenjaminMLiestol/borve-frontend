@@ -64,7 +64,7 @@ const Customers = () => {
 
 	useEffect(() => {
 		fetchCustomers();
-	});
+	}, []);
 
 	return (
 		<div className="sm:pt-20 pt-5">

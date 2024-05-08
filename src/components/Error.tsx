@@ -1,4 +1,3 @@
-import { postFeedback } from "@/api/feedbackService";
 import { ErrorFeedback } from "@/types/models/models";
 import { ErrorFeedbackSchema } from "@/types/validation.types";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -33,7 +32,7 @@ export const ErrorComponent = () => {
 	const onSubmit = async (data: ErrorFeedback) => {
 		console.log(data);
 		try {
-			await postFeedback(data);
+			// await postFeedback(data);
 		} catch (error) {
 			console.error(error);
 		}

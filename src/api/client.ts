@@ -26,24 +26,38 @@ client.interceptors.request.use(
 );
 
 client.interceptors.response.use(
-	(response) => {
-		toast.success(response.data.message);
-		return response;
-	},
-	(error) => {
-		let errorMessage = "An error occurred.";
-		if (error.response?.data?.message) {
-			errorMessage = error.response.data.message;
-		}
-		toast.error(`Error: ${errorMessage}`);
-		return Promise.reject(error);
-	},
+  (response) => {
+    if (response.config.url !== '/api/me') {
+      toast.success(response.data.message);
+    }
+    return response;
+  },
+  (error) => {
+    // Check if the request URL is "/api/me" and skip displaying toast
+    if (error.config.url === '/api/me') {
+      return Promise.reject(error);
+    }
+
+    let errorMessage = "An error occurred.";
+    if (error.response?.data?.message) {
+      errorMessage = error.response.data.message;
+    }
+    toast.error(`Error: ${errorMessage}`);
+    return Promise.reject(error);
+  }
 );
+
 client.interceptors.response.use(
-	(response) => response,
-	(error) => {
-		if (error.response.status === 401) {
-			location.href = "/auth/login";
-		}
-	},
+  (response) => response,
+  (error) => {
+    // Check if the request URL is "/api/me" and skip redirection
+    if (error.config.url === '/api/me') {
+      return Promise.reject(error);
+    }
+
+    if (error.response.status === 401) {
+      location.href = "/auth/login";
+    }
+    return Promise.reject(error);
+  }
 );

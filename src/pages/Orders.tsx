@@ -61,14 +61,13 @@ export const OrderComponent = () => {
 	const fetchOrders = async () => {
 		try {
 			const response: OrderResponse = await getOrders(request);
-
 			setOrders(response.orders);
 			setOptions(response);
 		} catch (error) {
 			console.log(error);
 		}
 	};
-
+	
 	const fetchCustomers = async () => {
 		try {
 			const response: CustomerResponse = await getCustomers(customerRequest);
@@ -77,7 +76,7 @@ export const OrderComponent = () => {
 			console.log(error);
 		}
 	};
-
+	
 	const handleDeleteOrder = async (orderId: string) => {
 		try {
 			await deleteOrder(orderId);
@@ -112,8 +111,9 @@ export const OrderComponent = () => {
 
 	useEffect(() => {
 		fetchOrders();
-		fetchCustomers();
-	});
+	fetchCustomers();
+	}, []);
+	
 
 	return (
 		<div className="sm:pt-20 pt-5">

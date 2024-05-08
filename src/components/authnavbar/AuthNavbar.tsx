@@ -55,7 +55,7 @@ export const AuthNavBarComponent = () => {
 					<div className="flex items-center justify-between px-2">
 						<div className="flex items-center gap-2 px-2">
 							<div className="flex h-8 w-8 items-center justify-center rounded-full border-small border-foreground/20"></div>
-							<span className="text-xs font-medium uppercase text-foreground">Firmataxi</span>
+							<span className="text-xs font-medium uppercase text-foreground">Børve spyling AS</span>
 						</div>
 
 						<Switch

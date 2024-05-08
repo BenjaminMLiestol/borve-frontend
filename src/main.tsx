@@ -11,6 +11,7 @@ import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import { login } from "./redux/reducers/authslice";
 import { store } from "./redux/store";
+import { UserProvider } from "./core/UserProvider";
 
 const queryClient = new QueryClient({
 	defaultOptions: { queries: { refetchOnWindowFocus: false } },
@@ -61,12 +62,14 @@ createRoot(document.getElementById("app")!).render(
 			/>
 			<NextUIProvider>
 				<NextThemesProvider attribute="class" defaultTheme="dark">
+					<UserProvider>
 					<main className="text-foreground bg-background flex flex-col">
 						<QueryClientProvider client={queryClient}>
 							<RouterProvider router={router} />
 							<ReactQueryDevtools initialIsOpen={false} />
 						</QueryClientProvider>
 					</main>
+					</UserProvider>
 				</NextThemesProvider>
 			</NextUIProvider>
 		</Provider>

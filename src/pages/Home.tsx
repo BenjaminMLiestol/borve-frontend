@@ -1,10 +1,13 @@
 import { ErrorComponent } from "@/components/Error";
+import { useUser } from "@/core/UserProvider";
 import { selectAuthState } from "@/redux/reducers/authslice";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useSelector } from "react-redux";
 
 export const HomeComponent = () => {
 	const auth = useSelector(selectAuthState);
+	const user = useUser();
+	console.log(user);
 
 	return (
 		<div className="flex flex-col">
