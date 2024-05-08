@@ -5,20 +5,15 @@ export interface ErrorFeedback {
 }
 
 export interface Order {
-	customer: string;
+	order_id: string;
+	customer_name: string;
+	customer_id: string;
 	price: number;
-	address_from: string;
-	address_to: string;
-	start_time: string;
-	time_spent?: number | null;
-	km_driven?: number | null;
-	comment?: string | null;
 	status: number;
-	passenger_count: number;
+	order_lines: OrderLine[];
 	created_at: string;
 	updated_at: string;
 	completed_at: string;
-	order_id: string;
 }
 
 export interface User {
@@ -49,9 +44,28 @@ export interface Customer {
 	address: string;
 	city: string;
 	zip_code: string;
-	country: string;
-	contact_email: string;
-	contact_phone: string;
+	contact_email?: string;
+	contact_phone?: string;
+	created_at: string;
+	updated_at: string;
+}
+
+export interface Product {
+	product_id: string;
+	name: string;
+	description: string;
+	price: number;
+	is_service: 0 | 1;
+	url?: string;
+	created_at: string;
+	updated_at: string;
+}
+
+export interface OrderLine {
+	product_id: string;
+	product_name: string;
+	quantity: number;
+	price: number;
 	created_at: string;
 	updated_at: string;
 }

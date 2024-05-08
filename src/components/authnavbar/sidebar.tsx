@@ -1,20 +1,16 @@
-"use client";
-
 import type { ListboxProps, ListboxSectionProps, Selection } from "@nextui-org/react";
-
 import { Icon } from "@iconify/react";
 import { Listbox, ListboxItem, ListboxSection, Tooltip } from "@nextui-org/react";
-import React from "react";
-
 import { cn } from "./cn";
+import { Key, ReactNode, forwardRef, useCallback, useState } from "react";
 
 export type SidebarItem = {
 	key: string;
 	title: string;
 	icon?: string;
 	href?: string;
-	startContent?: React.ReactNode;
-	endContent?: React.ReactNode;
+	startContent?: ReactNode;
+	endContent?: ReactNode;
 	items?: SidebarItem[];
 	className?: string;
 };
@@ -30,7 +26,7 @@ export type SidebarProps = Omit<ListboxProps<SidebarItem>, "children"> & {
 	onSelect?: (key: string) => void;
 };
 
-const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
+const Sidebar = forwardRef<HTMLElement, SidebarProps>(
 	(
 		{
 			items,
@@ -46,7 +42,7 @@ const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
 		},
 		ref,
 	) => {
-		const [selected, setSelected] = React.useState<React.Key>(defaultSelectedKey);
+		const [selected, setSelected] = useState<Key>(defaultSelectedKey);
 
 		const sectionClasses = {
 			...sectionClassesProp,
@@ -68,7 +64,7 @@ const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
 			}),
 		};
 
-		const renderItem = React.useCallback(
+		const renderItem = useCallback(
 			(item: SidebarItem) => {
 				return (
 					<ListboxItem
@@ -141,7 +137,7 @@ const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
 				onSelectionChange={(keys) => {
 					const key = Array.from(keys)[0];
 
-					setSelected(key as React.Key);
+					setSelected(key as Key);
 					onSelect?.(key as string);
 				}}
 				{...props}

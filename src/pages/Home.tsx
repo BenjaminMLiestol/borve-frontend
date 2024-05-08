@@ -1,11 +1,8 @@
 import { ErrorComponent } from "@/components/Error";
 import { useUser } from "@/core/UserProvider";
-import { selectAuthState } from "@/redux/reducers/authslice";
 import { createFileRoute, redirect } from "@tanstack/react-router";
-import { useSelector } from "react-redux";
 
 export const HomeComponent = () => {
-	const auth = useSelector(selectAuthState);
 	const user = useUser();
 	console.log(user);
 
@@ -13,7 +10,7 @@ export const HomeComponent = () => {
 		<div className="flex flex-col">
 			<div className="mt-10">
 				<h1 className="text-xxl">
-					Velkommen tilbake {auth.user?.first_name}
+					Velkommen tilbake {user?.first_name}
 					<span aria-label="emoji" className="ml-2" role="img">
 						👋
 					</span>

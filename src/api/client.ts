@@ -1,5 +1,8 @@
+import { logout } from "@/redux/reducers/authslice";
 import axios from "axios";
+// import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+// import { useNavigate } from "@tanstack/react-router";
 
 const isDev = import.meta.env.MODE === "development";
 
@@ -8,6 +11,12 @@ const backend = isDev ? import.meta.env.VITE_BFF_URL_DEV : import.meta.env.VITE_
 export const client = axios.create({
 	baseURL: backend,
 });
+
+
+// const handleLogout = () => {
+// 	dispatch(logout());
+// 	navigate({ to: "/auth/login" });
+// };
 
 client.interceptors.request.use(
 	(config) => {
@@ -26,38 +35,31 @@ client.interceptors.request.use(
 );
 
 client.interceptors.response.use(
-  (response) => {
-    if (response.config.url !== '/api/me') {
-      toast.success(response.data.message);
-    }
-    return response;
-  },
-  (error) => {
-    // Check if the request URL is "/api/me" and skip displaying toast
-    if (error.config.url === '/api/me') {
-      return Promise.reject(error);
-    }
+	(response) => {
+		if (response.config.url !== '/api/me') {
+			toast.success(response.data.message);
+		}
+		return response;
+	},
+	(error) => {
+		if (error.config.url === '/api/me') {
+			return Promise.reject(error);
+		}
 
-    let errorMessage = "An error occurred.";
-    if (error.response?.data?.message) {
-      errorMessage = error.response.data.message;
-    }
-    toast.error(`Error: ${errorMessage}`);
-    return Promise.reject(error);
-  }
+		let errorMessage = "An error occurred.";
+		if (error.response?.data?.message) {
+			errorMessage = error.response.data.message;
+		}
+		toast.error(`Error: ${errorMessage}`);
+		// handleLogout();
+		return Promise.reject(error);
+	}
 );
 
 client.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    // Check if the request URL is "/api/me" and skip redirection
-    if (error.config.url === '/api/me') {
-      return Promise.reject(error);
-    }
-
-    if (error.response.status === 401) {
-      location.href = "/auth/login";
-    }
-    return Promise.reject(error);
-  }
+	(response) => response,
+	(error) => {
+		return Promise.reject(error);
+	}
 );
+

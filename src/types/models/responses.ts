@@ -1,4 +1,4 @@
-import { Customer, Order, Token, User } from "./models";
+import { Customer, Order, Product, Token, User } from "./models";
 
 export interface LoginResponse {
 	token: Token;
@@ -17,4 +17,8 @@ export interface CustomerResponse {
 	page: number;
 	total_customers: number;
 	total_pages: number;
+}
+
+export interface ProductResponse {
+	products: Product[];
 }

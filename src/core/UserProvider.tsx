@@ -1,17 +1,17 @@
 import { checkUser } from '@/api/authenticationService';
+import { User } from '@/types/models/models';
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export interface UserAttributes {
-  [key: string]: string | number | undefined;
-}
 
-const UserContext = createContext<UserAttributes | object | null>(null);
+
+const UserContext = createContext<User | null>(null);
+
 interface UserProviderProps {
   children: ReactNode;
 }
 
 export const UserProvider = ({ children }: UserProviderProps) => {
-  const [user, setUser] = useState<UserAttributes | object | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   useEffect(() => {
     (async () => {
       try {
@@ -24,7 +24,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     })();
   }, []);
   return (
-    <UserContext.Provider value={user ?? {}}>
+    <UserContext.Provider value={user}>
       {children}
     </UserContext.Provider>
   );
