@@ -31,7 +31,7 @@ export const App = () => {
 			{!isAuthenticated && <NavbarComponent />}
 			{isAuthenticated && <AuthNavBarComponent />}
 
-			<div className="w-full px-5 max-w-[1500px]">
+			<div className="w-full">
 				<Outlet />
 			</div>
 		</div>

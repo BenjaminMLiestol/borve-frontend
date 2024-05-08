@@ -1,0 +1,15 @@
+.type-toggle>span>div {
+  text-align: center !important;
+  width: 50% !important;
+  color: white;
+}
+
+.type-toggle>span>span {
+  transition-duration: 300ms !important;
+  width: 50% !important;
+}
+
+.group[data-selected=true] .group-data-\[selected\=true\]\:ml-6 {
+  margin-left: 50% !important;
+  width: 50% !important;
+}

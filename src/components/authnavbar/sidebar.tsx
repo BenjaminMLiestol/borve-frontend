@@ -1,8 +1,9 @@
 import type { ListboxProps, ListboxSectionProps, Selection } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
-import { Listbox, ListboxItem, ListboxSection, Tooltip } from "@nextui-org/react";
+import { Listbox, ListboxItem, ListboxSection } from "@nextui-org/react";
 import { cn } from "./cn";
 import { Key, ReactNode, forwardRef, useCallback, useState } from "react";
+import { useNavigate, useRouterState } from "@tanstack/react-router";
 
 export type SidebarItem = {
 	key: string;
@@ -42,7 +43,9 @@ const Sidebar = forwardRef<HTMLElement, SidebarProps>(
 		},
 		ref,
 	) => {
-		const [selected, setSelected] = useState<Key>(defaultSelectedKey);
+		const router = useRouterState();
+		const [selected, setSelected] = useState<Key>(router.location.pathname.slice(1) ?? defaultSelectedKey);
+		const navigate = useNavigate();
 
 		const sectionClasses = {
 			...sectionClassesProp,
@@ -70,46 +73,30 @@ const Sidebar = forwardRef<HTMLElement, SidebarProps>(
 					<ListboxItem
 						{...item}
 						key={item.key}
+						href={undefined}
+						onClick={() => 	navigate({ to: item.href })}
 						endContent={isCompact || hideEndContent ? null : item.endContent ?? null}
 						startContent={
 							isCompact ? null : item.icon ? (
-								<Icon
-									className={cn(
-										"text-default-500 group-data-[selected=true]:text-foreground",
-										iconClassName,
-									)}
-									icon={item.icon}
-									width={24}
-								/>
+									<Icon
+											className={cn(
+													"text-default-500 group-data-[selected=true]:text-foreground",
+													iconClassName,
+											)}
+											icon={item.icon}
+											width={24}
+									/>
 							) : (
 								item.startContent ?? null
 							)
 						}
 						title={isCompact ? null : item.title}
-					>
-						{isCompact ? (
-							<Tooltip content={item.title} placement="right">
-								<div className="flex w-full items-center justify-center">
-									{item.icon ? (
-										<Icon
-											className={cn(
-												"text-default-500 group-data-[selected=true]:text-foreground",
-												iconClassName,
-											)}
-											icon={item.icon}
-											width={24}
-										/>
-									) : (
-										item.startContent ?? null
-									)}
-								</div>
-							</Tooltip>
-						) : null}
-					</ListboxItem>
+					/>
 				);
 			},
-			[isCompact, hideEndContent, iconClassName],
-		);
+			[isCompact, hideEndContent, iconClassName, navigate],
+	);
+	
 
 		return (
 			<Listbox

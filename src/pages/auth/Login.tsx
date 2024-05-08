@@ -4,7 +4,7 @@ import { LoginRequest } from "@/types/models/requests";
 import { LoginRequestSchema } from "@/types/validation.types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Icon } from "@iconify/react";
-import { Button, Input } from "@nextui-org/react";
+import { Button, Checkbox, Input } from "@nextui-org/react";
 import {
 	ErrorComponent,
 	Link,
@@ -52,7 +52,7 @@ export const LoginTwoComponent = () => {
 
 	return (
 		<div
-			className="flex h-screen w-screen items-center justify-center overflow-hidden rounded-small bg-content1 p-2 sm:p-4 lg:p-8"
+			className="flex w-full items-center justify-center overflow-hidden rounded-small bg-content1 p-2 sm:p-4 lg:p-8"
 			style={{
 				backgroundImage:
 					"url(https://nextuipro.nyc3.cdn.digitaloceanspaces.com/components-images/black-background-texture-2.jpg)",
@@ -112,14 +112,14 @@ export const LoginTwoComponent = () => {
 							/>
 						)}
 					/>
-					{/* <div className="flex items-center justify-between px-1 py-2">
+					<div className="flex items-center justify-between px-1 py-2">
             <Checkbox name="remember" size="sm">
               Remember me
             </Checkbox>
-            <Link className="text-default-500" href="#" size="sm">
+            <Link className="text-default-500" href="#">
               Forgot password?
             </Link>
-          </div> */}
+          </div>
 					<Button isDisabled={isSubmitting} color="primary" type="submit">
 						Logg inn
 					</Button>

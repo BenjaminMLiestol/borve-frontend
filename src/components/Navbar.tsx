@@ -6,10 +6,6 @@ import {
 	DropdownMenu,
 	DropdownSection,
 	DropdownTrigger,
-	Navbar,
-	NavbarBrand,
-	NavbarContent,
-	NavbarItem,
 	Switch,
 } from "@nextui-org/react";
 import { Link } from "@tanstack/react-router";
@@ -28,28 +24,7 @@ export const NavbarComponent = () => {
 	};
 
 	return (
-		<div>
-			<div className="hidden sm:flex">
-				<Navbar>
-					<NavbarBrand>
-						<p className="font-bold text-inherit">Børve spyling AS</p>
-					</NavbarBrand>
-					<NavbarContent className="flex gap-4" justify="center"></NavbarContent>
-					<NavbarContent justify="end">
-						<NavbarItem className="lg:flex">
-							<Link to={"/auth/login"}>Logg inn</Link>
-						</NavbarItem>
-						<Switch
-							color="default"
-							thumbIcon={isDarkMode ? <DarkModeIcon /> : <LightModeIcon />}
-							isSelected={isDarkMode}
-							onValueChange={updateMode}
-							aria-label="Dark mode"
-						/>
-					</NavbarContent>
-				</Navbar>
-			</div>
-			<div className="sm:hidden float-right p-5 flex flex-row">
+			<div className="p-5 flex flex-row justify-end mx-auto max-w-[1250px] w-full">
 				<Switch
 					color="default"
 					thumbIcon={isDarkMode ? <DarkModeIcon /> : <LightModeIcon />}
@@ -81,6 +56,5 @@ export const NavbarComponent = () => {
 					</DropdownMenu>
 				</Dropdown>
 			</div>
-		</div>
 	);
 };

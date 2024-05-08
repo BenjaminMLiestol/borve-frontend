@@ -116,7 +116,7 @@ export const OrderComponent = () => {
 	
 
 	return (
-		<div className="sm:pt-20 pt-5">
+		<div className="sm:pt-20 pt-5 px-5 max-w-[1500px]">
 			<OrderDetails order={order} isOpen={isEditModalOpen} onOpenChange={onEditModalOpenChange} />
 			<NewOrder
 				customers={customers}
@@ -127,7 +127,6 @@ export const OrderComponent = () => {
 				}}
 			/>
 			<Button
-				className="float-right"
 				startContent={<PlusIcon />}
 				radius="sm"
 				onClick={onCreateModalOpen}
@@ -139,17 +138,14 @@ export const OrderComponent = () => {
 					<TableColumn key="company_name" aria-label="customer" allowsSorting>
 						Kunde
 					</TableColumn>
-					<TableColumn key="start_time" aria-label="start_time" allowsSorting>
-						Tidspunkt
-					</TableColumn>
-					<TableColumn key="address_from" aria-label="address_from" allowsSorting>
-						Fra
-					</TableColumn>
-					<TableColumn key="address_to" aria-label="address_to" allowsSorting>
-						Til
+					<TableColumn key="created_at" aria-label="created_at" allowsSorting>
+						Opprettet
 					</TableColumn>
 					<TableColumn key="price" aria-label="price" allowsSorting>
 						Pris
+					</TableColumn>
+					<TableColumn key="status" aria-label="status" allowsSorting>
+						Status
 					</TableColumn>
 					<TableColumn key="completed_at" aria-label="completed_at" allowsSorting>
 						Fullført
@@ -159,12 +155,9 @@ export const OrderComponent = () => {
 				<TableBody emptyContent={"Ingen ordre å vise"}>
 					{orders.map((order) => (
 						<TableRow key={order.order_id}>
-							<TableCell aria-label={`customer-${order.order_id}`}>{order.customer}</TableCell>
-							<TableCell aria-label={`start-time-${order.order_id}`}>{order.start_time}</TableCell>
-							<TableCell aria-label={`address-from-${order.order_id}`}>
-								{order.address_from}
-							</TableCell>
-							<TableCell aria-label={`address-to-${order.order_id}`}>{order.address_to}</TableCell>
+							<TableCell aria-label={`customer-${order.order_id}`}>{order.customer_name}</TableCell>
+							<TableCell aria-label={`customer-${order.order_id}`}>{order.created_at}</TableCell>
+							<TableCell aria-label={`address-to-${order.order_id}`}>{order.status}</TableCell>
 							<TableCell aria-label={`price-${order.order_id}`}>{order.price}</TableCell>
 							<TableCell aria-label={`completed-${order.order_id}`}>
 								{order.completed_at ? "✓" : "-"}

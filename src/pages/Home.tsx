@@ -4,10 +4,9 @@ import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const HomeComponent = () => {
 	const user = useUser();
-	console.log(user);
 
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col px-5 max-w-[1500px]">
 			<div className="mt-10">
 				<h1 className="text-xxl">
 					Velkommen tilbake {user?.first_name}

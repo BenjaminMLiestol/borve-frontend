@@ -31,6 +31,7 @@ declare module "@tanstack/react-router" {
 }
 
 const mode = localStorage.getItem("theme") || "dark";
+localStorage.setItem('theme', mode);
 
 const initializeApp = async () => {
 	try {

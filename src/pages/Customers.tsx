@@ -67,7 +67,7 @@ const Customers = () => {
 	}, []);
 
 	return (
-		<div className="sm:pt-20 pt-5">
+		<div className="sm:pt-20 pt-5 px-5 max-w-[1500px]">
 			<CustomerDetails
 				customer={customerDetail}
 				isOpen={isEditModalOpen}
@@ -113,13 +113,13 @@ const Customers = () => {
 					</TableColumn>
 					<TableColumn> </TableColumn>
 				</TableHeader>
-				<TableBody emptyContent={"Ingen ordre å vise"}>
+				<TableBody emptyContent={"Ingen kunder å vise"}>
 					{customers.map((customer) => (
 						<TableRow key={customer.id}>
 							<TableCell aria-label={`customer-${customer.id}`}>{customer.company_name}</TableCell>
 							<TableCell aria-label={`price-${customer.id}`}>{customer.contact_name}</TableCell>
 							<TableCell className="max-w-[30%] truncate" aria-label={`start-time-${customer.id}`}>
-								{customer.address}, {customer.city} {customer.zip_code}, {customer.country}
+								{customer.address}, {customer.city} {customer.zip_code}
 							</TableCell>
 							<TableCell aria-label={`address-from-${customer.id}`}>
 								{customer.contact_email}

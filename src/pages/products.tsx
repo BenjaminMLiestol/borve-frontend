@@ -3,12 +3,18 @@ import { DeleteIcon, EyeIcon, PlusIcon } from '@/assets/icons';
 import { ErrorComponent } from '@/components/Error';
 import { Product } from '@/types/models/models';
 import { ProductResponse } from '@/types/models/responses';
-import { Button, Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination, Tooltip } from '@nextui-org/react';
+import { Button, Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination, Tooltip, useDisclosure } from '@nextui-org/react';
 import { createFileRoute, redirect } from '@tanstack/react-router'
 import { useEffect, useState } from 'react';
+import { NewProduct } from './-components/NewProduct';
 
 export const Products = () => {
   const [ products, setProducts] = useState<Product[]>([])
+	const {
+		isOpen: isCreateModalOpen,
+		onOpen: onCreateModalOpen,
+		onOpenChange: onCreateModalOpenChange,
+	} = useDisclosure();
 
 	const fetchProducts = async () => {
 		try {
@@ -33,13 +39,20 @@ export const Products = () => {
 
   return (
 		<>
-			<div className="sm:pt-20 pt-5">
+			<div className="sm:pt-20 pt-5 px-5 max-w-[1500px]">
 				<Button
 					startContent={<PlusIcon />}
 					radius="sm"
+					onClick={onCreateModalOpen}
 				>
 					Nytt produkt
 				</Button>
+				<NewProduct
+				isOpen={isCreateModalOpen}
+				onOpenChange={() => {
+					onCreateModalOpenChange();
+				}}
+			/>
 				<Table className="pt-5" isStriped>
 					<TableHeader aria-label="table-header">
 						<TableColumn key="name" aria-label="product" allowsSorting>

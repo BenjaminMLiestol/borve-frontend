@@ -1,8 +1,8 @@
 import { checkUser } from '@/api/authenticationService';
+import { logout } from '@/redux/reducers/authslice';
 import { User } from '@/types/models/models';
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-
-
+import { useDispatch } from 'react-redux';
 
 const UserContext = createContext<User | null>(null);
 
@@ -11,6 +11,7 @@ interface UserProviderProps {
 }
 
 export const UserProvider = ({ children }: UserProviderProps) => {
+  const dispatch = useDispatch();
   const [user, setUser] = useState<User | null>(null);
   useEffect(() => {
     (async () => {
@@ -18,8 +19,8 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         const fetchedUser = await checkUser();
         setUser(fetchedUser.data);
       } catch (error) {
-        console.error('Failed to fetch user attributes:', error);
-        setUser({});
+        setUser(null);
+        dispatch(logout());
       }
     })();
   }, []);
