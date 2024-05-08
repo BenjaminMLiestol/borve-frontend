@@ -30,6 +30,8 @@ declare module "@tanstack/react-router" {
 	}
 }
 
+const mode = localStorage.getItem("theme") || "dark";
+
 const initializeApp = async () => {
 	try {
 		const user = JSON.parse(localStorage.getItem("user") || "null");
@@ -61,7 +63,7 @@ createRoot(document.getElementById("app")!).render(
 				theme="dark"
 			/>
 			<NextUIProvider>
-				<NextThemesProvider attribute="class" defaultTheme="dark">
+				<NextThemesProvider attribute="class" defaultTheme={mode}>
 					<UserProvider>
 					<main className="text-foreground bg-background flex flex-col">
 						<QueryClientProvider client={queryClient}>
