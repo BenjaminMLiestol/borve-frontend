@@ -1,7 +1,6 @@
 import type { SidebarItem } from "./sidebar";
 
 import { Icon } from "@iconify/react";
-import { Chip } from "@nextui-org/react";
 
 // import TeamAvatar from "./team-avatar";
 
@@ -61,9 +60,9 @@ export const sectionItems: SidebarItem[] = [
 		],
 	},
 	{
-	  key: "sale",
-	  title: "Salg",
-	  items: [
+		key: "sale",
+		title: "Salg",
+		items: [
 			{
 				key: "orders",
 				href: "/orders",
@@ -73,13 +72,13 @@ export const sectionItems: SidebarItem[] = [
 					<Icon className="text-default-400" icon="solar:add-circle-line-duotone" width={24} />
 				),
 			},
-	    {
-	      key: "products",
-	      href: "/products",
-	      title: "Produkter",
-	      icon: "solar:pie-chart-2-outline",
-	    },
-	  ],
+			{
+				key: "products",
+				href: "/products",
+				title: "Produkter",
+				icon: "solar:pie-chart-2-outline",
+			},
+		],
 	},
 ];
 

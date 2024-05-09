@@ -15,6 +15,7 @@ interface OrderDetailsProps {
 }
 
 export const OrderDetails = ({ order, isOpen, onOpenChange }: OrderDetailsProps) => {
+	console.log(order);
 	return (
 		<Modal
 			className="max-w-[750px] w-full"
@@ -27,7 +28,6 @@ export const OrderDetails = ({ order, isOpen, onOpenChange }: OrderDetailsProps)
 				<Divider />
 				<ModalBody>
 					<div className="flex sm:flex-row flex-col">
-						<div>{order?.customer}</div>
 						<div>hello</div>
 					</div>
 				</ModalBody>

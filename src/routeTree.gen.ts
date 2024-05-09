@@ -18,7 +18,7 @@ import { Route as CustomersImport } from "./pages/customers"
 import { Route as IndexImport } from "./pages/index"
 import { Route as ProfileIndexImport } from "./pages/profile/index"
 import { Route as AuthRegisterImport } from "./pages/auth/register"
-import { Route as AuthLoginImport } from "./pages/auth/login"
+import { Route as AuthLoginImport } from "./pages/auth/Login"
 
 // Create/Update Routes
 
@@ -58,7 +58,7 @@ const AuthRegisterRoute = AuthRegisterImport.update({
 } as any)
 
 const AuthLoginRoute = AuthLoginImport.update({
-  path: "/auth/login",
+  path: "/auth/Login",
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -86,7 +86,7 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof ProductsImport
       parentRoute: typeof rootRoute
     }
-    "/auth/login": {
+    "/auth/Login": {
       preLoaderRoute: typeof AuthLoginImport
       parentRoute: typeof rootRoute
     }

@@ -135,7 +135,7 @@ export const LoginTwoComponent = () => {
 	);
 };
 
-export const Route = createFileRoute("/auth/login")({
+export const Route = createFileRoute("/auth/Login")({
 	component: LoginTwoComponent,
 	beforeLoad: async () => {
 		const isAuthenticated =
