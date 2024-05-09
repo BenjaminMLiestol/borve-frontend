@@ -49,7 +49,7 @@ client.interceptors.response.use(
 		if (error.response?.data?.message) {
 			errorMessage = error.response.data.message;
 		}
-		toast.error(`Error: ${errorMessage}`);
+		toast.error(`${errorMessage}`);
 		// handleLogout();
 		return Promise.reject(error);
 	}

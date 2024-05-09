@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import { NewProduct } from './-components/NewProduct';
 
 export const Products = () => {
-  const [ products, setProducts] = useState<Product[]>([])
+	const [products, setProducts] = useState<Product[]>([])
 	const {
 		isOpen: isCreateModalOpen,
 		onOpen: onCreateModalOpen,
@@ -29,15 +29,15 @@ export const Products = () => {
 		fetchProducts();
 	}, []);
 
-	const viewProductDetails = (product: Product) =>{
+	const viewProductDetails = (product: Product) => {
 		console.log(product);
 	}
 
-	const handleDeleteProduct = (product_id: string) =>{
+	const handleDeleteProduct = (product_id: string) => {
 		console.log(product_id);
 	}
 
-  return (
+	return (
 		<>
 			<div className="sm:pt-20 pt-5 px-5 max-w-[1500px]">
 				<Button
@@ -48,11 +48,11 @@ export const Products = () => {
 					Nytt produkt
 				</Button>
 				<NewProduct
-				isOpen={isCreateModalOpen}
-				onOpenChange={() => {
-					onCreateModalOpenChange();
-				}}
-			/>
+					isOpen={isCreateModalOpen}
+					onOpenChange={() => {
+						onCreateModalOpenChange();
+					}}
+				/>
 				<Table className="pt-5" isStriped>
 					<TableHeader aria-label="table-header">
 						<TableColumn key="name" aria-label="product" allowsSorting>
@@ -70,7 +70,7 @@ export const Products = () => {
 						<TableColumn> </TableColumn>
 					</TableHeader>
 					<TableBody emptyContent={"Ingen produkter å vise"}>
-						{products.map((product, i) => (
+						{products && products.map((product, i) => (
 							<TableRow key={product.product_id} aria-label={`row-${i}`}>
 								<TableCell aria-label={`name-${product.product_id}`} className="sm:w-1/5">{product.name}</TableCell>
 								<TableCell aria-label={`desc-${product.product_id}`} className="sm:w-2/5">{product.description}</TableCell>
@@ -80,7 +80,7 @@ export const Products = () => {
 									<div className="relative flex items-center justify-end gap-2">
 										<Tooltip aria-label={`details-${product.product_id}`} content="Detaljer">
 											<span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-													<EyeIcon onClick={() => viewProductDetails(product)} />
+												<EyeIcon onClick={() => viewProductDetails(product)} />
 											</span>
 										</Tooltip>
 										<Tooltip
@@ -89,7 +89,7 @@ export const Products = () => {
 											content="Slett ordre"
 										>
 											<span className="text-lg text-danger cursor-pointer active:opacity-50">
-													<DeleteIcon onClick={() => handleDeleteProduct(product.product_id)} />
+												<DeleteIcon onClick={() => handleDeleteProduct(product.product_id)} />
 											</span>
 										</Tooltip>
 									</div>
@@ -113,7 +113,7 @@ export const Products = () => {
 				/>
 			</div>
 		</>
-	
+
 	);
 }
 

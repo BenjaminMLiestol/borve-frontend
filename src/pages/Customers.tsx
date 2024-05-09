@@ -32,7 +32,7 @@ const Customers = () => {
 	} = useDisclosure();
 	const {
 		isOpen: isCreateModalOpen,
-		onOpen: onCreateModalOpen,
+		// onOpen: onCreateModalOpen,
 		onOpenChange: onCreateModalOpenChange,
 	} = useDisclosure();
 
@@ -82,10 +82,8 @@ const Customers = () => {
 				}}
 			/>
 			<Button
-				className="float-right"
 				startContent={<PlusIcon />}
 				radius="sm"
-				onClick={onCreateModalOpen}
 			>
 				Ny kunde
 			</Button>
