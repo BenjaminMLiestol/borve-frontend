@@ -3,10 +3,6 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
-	"engines": {
-		"npm": "use-pnpm",
-		"pnpm": "*"
-	},
 	"scripts": {
 		"dev": "pnpm i && vite",
 		"build": "pnpm i && tsc && vite build",
