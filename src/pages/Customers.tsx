@@ -53,7 +53,7 @@ const Customers = () => {
 			setCustomers(response.customers);
 			setOptions(response);
 		} catch (error) {
-			console.log(error);
+			// console.log(error);
 		}
 	};
 

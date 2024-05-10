@@ -64,7 +64,7 @@ export const OrderComponent = () => {
 			setOrders(response.orders);
 			setOptions(response);
 		} catch (error) {
-			console.log(error);
+			// console.log(error);
 		}
 	};
 	
@@ -73,7 +73,7 @@ export const OrderComponent = () => {
 			const response: CustomerResponse = await getCustomers(customerRequest);
 			setCustomers(response.customers);
 		} catch (error) {
-			console.log(error);
+			// console.log(error);
 		}
 	};
 	

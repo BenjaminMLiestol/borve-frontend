@@ -43,7 +43,7 @@ export const CreateAccountComponent = () => {
 			}, 1000);
 		} catch (error) {
 			setIsSubmitting(false);
-			console.log(error);
+			// console.log(error);
 		}
 	};
 

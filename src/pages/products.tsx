@@ -6,10 +6,18 @@ import { ProductResponse } from '@/types/models/responses';
 import { Button, Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination, Tooltip, useDisclosure } from '@nextui-org/react';
 import { createFileRoute, redirect } from '@tanstack/react-router'
 import { useEffect, useState } from 'react';
+// import { NewProduct } from './-components/NewProduct';
+import { ProductDetails } from './-components/ProductDetails';
 import { NewProduct } from './-components/NewProduct';
 
 export const Products = () => {
 	const [products, setProducts] = useState<Product[]>([])
+	const [product, setProduct] = useState<Product>();
+	const {
+		isOpen: isEditModalOpen,
+		onOpen: onEditModalOpen,
+		onOpenChange: onEditModalOpenChange,
+	} = useDisclosure();
 	const {
 		isOpen: isCreateModalOpen,
 		onOpen: onCreateModalOpen,
@@ -21,7 +29,7 @@ export const Products = () => {
 			const response: ProductResponse = await getProducts();
 			setProducts(response.products);
 		} catch (error) {
-			console.log(error);
+			// console.log(error);
 		}
 	};
 
@@ -30,7 +38,8 @@ export const Products = () => {
 	}, []);
 
 	const viewProductDetails = (product: Product) => {
-		console.log(product);
+		setProduct(product);
+		onEditModalOpen()
 	}
 
 	const handleDeleteProduct = (product_id: string) => {
@@ -40,6 +49,12 @@ export const Products = () => {
 	return (
 		<>
 			<div className="sm:pt-20 pt-5 px-5 max-w-[1500px]">
+				<NewProduct
+					isOpen={isCreateModalOpen}
+					onOpenChange={() => {
+						onCreateModalOpenChange();
+					}}
+				/>
 				<Button
 					startContent={<PlusIcon />}
 					radius="sm"
@@ -47,12 +62,7 @@ export const Products = () => {
 				>
 					Nytt produkt
 				</Button>
-				<NewProduct
-					isOpen={isCreateModalOpen}
-					onOpenChange={() => {
-						onCreateModalOpenChange();
-					}}
-				/>
+				<ProductDetails product={product} isOpen={isEditModalOpen} onOpenChange={onEditModalOpenChange} />
 				<Table className="pt-5" isStriped>
 					<TableHeader aria-label="table-header">
 						<TableColumn key="name" aria-label="product" allowsSorting>

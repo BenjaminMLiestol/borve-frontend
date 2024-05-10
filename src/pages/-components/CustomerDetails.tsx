@@ -19,6 +19,7 @@ export const CustomerDetails = ({ customer, isOpen, onOpenChange }: CustomerDeta
 		<Modal
 			className="max-w-[750px] w-full"
 			isOpen={isOpen}
+			placement="top"
 			onOpenChange={onOpenChange}
 			scrollBehavior="inside"
 		>

@@ -15,7 +15,7 @@ interface OrderDetailsProps {
 }
 
 export const OrderDetails = ({ order, isOpen, onOpenChange }: OrderDetailsProps) => {
-	console.log(order);
+	// console.log(order);
 	return (
 		<Modal
 			className="max-w-[750px] w-full"
