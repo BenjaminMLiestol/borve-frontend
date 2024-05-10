@@ -54,7 +54,7 @@ export interface Product {
 	product_id: string;
 	name: string;
 	description: string;
-	price: number;
+	price: number | string;
 	is_service: 0 | 1;
 	url?: string;
 	created_at: string;

@@ -8,7 +8,6 @@ import {
 	ModalContent,
 	ModalFooter,
 	ModalHeader,
-  Switch,
   Textarea,
 } from "@nextui-org/react";
 import "./newProduct.css"
@@ -49,7 +48,7 @@ export const ProductDetails = ({ product, isOpen, onOpenChange }: ProductDetails
                 label="Pris" 
                 labelPlacement="outside"
                 variant="faded"
-                value={product?.price as number}
+                value={product?.price as string}
                 className="w-24" 
                 endContent={
                   <div className="pointer-events-none flex items-center">
