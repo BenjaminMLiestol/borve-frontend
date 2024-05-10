@@ -80,6 +80,19 @@ export const sectionItems: SidebarItem[] = [
 			},
 		],
 	},
+	{
+		key: "administration",
+		title: "Administrasjon",
+		items: [
+			{
+				key: "Profil",
+				href: "/profile",
+				icon: "solar:settings-outline",
+				title: "Profil",
+				
+			},
+		],
+	},
 ];
 
 export const sectionItemsWithTeams: SidebarItem[] = [
