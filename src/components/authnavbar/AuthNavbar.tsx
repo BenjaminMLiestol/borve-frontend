@@ -136,22 +136,32 @@ export const AuthNavBarComponent = () => {
 							<DropdownSection aria-label="actions" showDivider>
 								<DropdownItem key="home" textValue="home">
 									<Link className="w-full flex" to="/home">
-										Hjem
-									</Link>
-								</DropdownItem>
-								<DropdownItem key="my_orders" textValue="orders">
-									<Link className="w-full flex" to="/orders">
-										Mine ordre
+										Oversikt
 									</Link>
 								</DropdownItem>
 								<DropdownItem key="my_customers" textValue="customers">
 									<Link className="w-full flex" to="/customers">
-										Mine kunder
+										Kunder
 									</Link>
 								</DropdownItem>
+								
+							</DropdownSection>
+							<DropdownSection showDivider>
+							<DropdownItem key="orders" textValue="orders">
+									<Link className="w-full flex" to="/orders">
+										Ordre
+									</Link>
+								</DropdownItem>
+								<DropdownItem key="products" textValue="products">
+									<Link className="w-full flex" to="/products">
+										Produkt
+									</Link>
+								</DropdownItem>
+							</DropdownSection>
+							<DropdownSection showDivider>
 								<DropdownItem key="my_profile" textValue="profile">
 									<Link className="w-full flex" to="/profile">
-										Min profil
+										Profil
 									</Link>
 								</DropdownItem>
 							</DropdownSection>
