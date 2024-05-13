@@ -164,7 +164,7 @@ const Customers = () => {
 	);
 };
 
-export const Route = createFileRoute("/customers")({
+export const Route = createFileRoute("/Customers")({
 	component: Customers,
 	beforeLoad: async ({ location }) => {
 		const isAuthenticated =

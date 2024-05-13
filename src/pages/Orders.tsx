@@ -201,7 +201,7 @@ export const OrderComponent = () => {
 	);
 };
 
-export const Route = createFileRoute("/orders")({
+export const Route = createFileRoute("/Orders")({
 	component: OrderComponent,
 	beforeLoad: async ({ location }) => {
 		const isAuthenticated =

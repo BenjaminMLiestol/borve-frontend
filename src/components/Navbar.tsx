@@ -1,19 +1,18 @@
-import { CloseIcon, DarkModeIcon, HamburgerIcon, LightModeIcon } from "@/assets/icons";
+import { DarkModeIcon, LightModeIcon } from "@/assets/icons";
 import {
-	Button,
-	Dropdown,
-	DropdownItem,
-	DropdownMenu,
-	DropdownSection,
-	DropdownTrigger,
+
+	Listbox,
+	ListboxItem,
+	ListboxSection,
 	Switch,
 } from "@nextui-org/react";
+import { Link } from "@tanstack/react-router";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 
 export const NavbarComponent = () => {
 	const mode = localStorage.getItem("theme");
-	const [isExpanded, setExpanded] = useState(false);
+	// const [isExpanded, setExpanded] = useState(false);
 	const [isDarkMode, setDarkMode] = useState(mode === "dark" ? true : false);
 	const { setTheme } = useTheme();
 
@@ -31,7 +30,21 @@ export const NavbarComponent = () => {
 					onValueChange={updateMode}
 					aria-label="Dark mode"
 				/>
-				<Dropdown>
+				<Listbox>
+					<ListboxSection>
+						<ListboxItem key="login">
+							<Link to="auth/login">
+							Logg inn
+							</Link>
+						</ListboxItem>
+						<ListboxItem>
+							<Link to="/">
+								Hjem
+								</Link>
+						</ListboxItem>
+					</ListboxSection>
+				</Listbox>
+				{/* <Dropdown>
 					<DropdownTrigger>
 						<Button variant="bordered" onClick={() => setExpanded(!isExpanded)}>
 							{isExpanded ? <CloseIcon /> : <HamburgerIcon />}
@@ -49,7 +62,7 @@ export const NavbarComponent = () => {
 							</DropdownItem>
 						</DropdownSection>
 					</DropdownMenu>
-				</Dropdown>
+				</Dropdown> */}
 			</div>
 	);
 };
