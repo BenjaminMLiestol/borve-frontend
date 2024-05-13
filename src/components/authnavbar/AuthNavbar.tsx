@@ -134,35 +134,25 @@ export const AuthNavBarComponent = () => {
 						</DropdownTrigger>
 						<DropdownMenu aria-label="Dropdown menu">
 							<DropdownSection aria-label="actions" showDivider>
-								<DropdownItem key="home" textValue="home">
-									<Link className="w-full flex" to="/home">
+								<DropdownItem key="home" textValue="home" onClick={() => navigate({ to: "/home" })}>
 										Oversikt
-									</Link>
 								</DropdownItem>
-								<DropdownItem key="my_customers" textValue="customers">
-									<Link className="w-full flex" to="/customers">
+								<DropdownItem key="my_customers" textValue="customers" onClick={() => navigate({ to: "/customers" })}>
 										Kunder
-									</Link>
 								</DropdownItem>
 								
 							</DropdownSection>
 							<DropdownSection showDivider>
-							<DropdownItem key="orders" textValue="orders">
-									<Link className="w-full flex" to="/orders">
+							<DropdownItem key="orders" textValue="orders" onClick={() => navigate({ to: "/orders" })}>
 										Ordre
-									</Link>
 								</DropdownItem>
-								<DropdownItem key="products" textValue="products">
-									<Link className="w-full flex" to="/products">
+								<DropdownItem key="products" textValue="products" onClick={() => navigate({ to: "/products" })}>
 										Produkt
-									</Link>
 								</DropdownItem>
 							</DropdownSection>
 							<DropdownSection showDivider>
-								<DropdownItem key="my_profile" textValue="profile">
-									<Link className="w-full flex" to="/profile">
+								<DropdownItem key="my_profile" textValue="profile" onClick={() => navigate({ to: "/profile" })}>
 										Profil
-									</Link>
 								</DropdownItem>
 							</DropdownSection>
 							<DropdownSection aria-label="logout">
