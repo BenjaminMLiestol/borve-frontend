@@ -41,8 +41,8 @@ export const NavbarComponent = () => {
 					</DropdownTrigger>
 					<DropdownMenu aria-label="Dropdown menu">
 						<DropdownSection aria-label="login" showDivider>
-							<DropdownItem key="login" textValue="login" onClick={() => navigate({ to: "/auth/login" })}>
-									Logg inn
+							<DropdownItem key="login" textValue="login" >
+								<Button fullWidth={true} variant="light" onClick={() => navigate({ to: "/auth/login" })}>Logg inn</Button>	
 							</DropdownItem>
 							<DropdownItem key="login" textValue="login">
 								<Link className="w-full flex" to="/auth/login">
@@ -52,7 +52,7 @@ export const NavbarComponent = () => {
 						</DropdownSection>
 						<DropdownSection aria-label="actions">
 							<DropdownItem key="home" textValue="home" onClick={() => navigate({ to: "/" })}>
-									Hjem
+								<Button fullWidth={true} variant="light" onClick={() => navigate({ to: "/" })}>Hjem</Button>	
 							</DropdownItem>
 						</DropdownSection>
 					</DropdownMenu>
