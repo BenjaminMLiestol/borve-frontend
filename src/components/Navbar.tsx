@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export const NavbarComponent = () => {
 	const mode = localStorage.getItem("theme");
-	// const [isExpanded, setExpanded] = useState(false);
+	const [isExpanded, setExpanded] = useState(false);
 	const [isDarkMode, setDarkMode] = useState(mode === "dark" ? true : false);
 	const { setTheme } = useTheme();
 
@@ -17,20 +17,23 @@ export const NavbarComponent = () => {
 
 	return (
 				<Navbar
-				isBordered
-        classNames={{
-          item: "data-[active=true]:text-primary",
-          wrapper: "px-4 sm:px-6",
-        }}
-        height="64px">
+					isBordered
+					classNames={{
+						item: "data-[active=true]:text-primary",
+						wrapper: "px-4 sm:px-6",
+					}}
+					height="64px"
+					isMenuOpen={isExpanded}
+					onMenuOpenChange={setExpanded}
+				>
 					<NavbarMenuToggle className="mr-2 h-6 " />
-					<NavbarMenu>
-          <NavbarMenuItem>
+					<NavbarMenu className="max-w-[1024px] mx-auto">
+          <NavbarMenuItem onClick={() => setExpanded(false)}>
             <Link className="w-full" to="/auth/login">
 							Logg inn
             </Link>
           </NavbarMenuItem>
-          <NavbarMenuItem>
+          <NavbarMenuItem onClick={() => setExpanded(false)}>
             <Link aria-current="page" className="w-full" to="/">
               Hjem
             </Link>
