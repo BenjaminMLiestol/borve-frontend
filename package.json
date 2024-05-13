@@ -4,9 +4,9 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "pnpm i && vite",
-		"build": "pnpm i && tsc && vite build",
-		"update:upgrade": "pnpm update -L",
+		"dev": "npm i && vite",
+		"build": "npm i && tsc && vite build",
+		"update:upgrade": "npm update -L",
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
 		"format": "biome check --apply ./src"
