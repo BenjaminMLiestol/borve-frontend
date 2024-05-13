@@ -8,12 +8,13 @@ import {
 	DropdownTrigger,
 	Switch,
 } from "@nextui-org/react";
-import { Link } from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 
 export const NavbarComponent = () => {
 	const mode = localStorage.getItem("theme");
+	const navigate = useNavigate();
 	const [isExpanded, setExpanded] = useState(false);
 	const [isDarkMode, setDarkMode] = useState(mode === "dark" ? true : false);
 	const { setTheme } = useTheme();
@@ -40,17 +41,13 @@ export const NavbarComponent = () => {
 					</DropdownTrigger>
 					<DropdownMenu aria-label="Dropdown menu">
 						<DropdownSection aria-label="login" showDivider>
-							<DropdownItem key="login" textValue="login">
-								<Link className="w-full flex" to="/auth/login">
+							<DropdownItem key="login" textValue="login" onClick={() => navigate({ to: "/auth/login" })}>
 									Logg inn
-								</Link>
 							</DropdownItem>
 						</DropdownSection>
 						<DropdownSection aria-label="actions">
-							<DropdownItem key="home" textValue="home">
-								<Link className="w-full flex" to="/">
+							<DropdownItem key="home" textValue="home" onClick={() => navigate({ to: "/" })}>
 									Hjem
-								</Link>
 							</DropdownItem>
 						</DropdownSection>
 					</DropdownMenu>

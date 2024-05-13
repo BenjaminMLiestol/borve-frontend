@@ -13,7 +13,7 @@ import {
 	Spacer,
 	Switch,
 } from "@nextui-org/react";
-import { Link, useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
