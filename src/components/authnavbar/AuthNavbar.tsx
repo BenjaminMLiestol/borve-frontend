@@ -126,7 +126,7 @@ export const AuthNavBarComponent = () => {
 						onValueChange={updateMode}
 						aria-label="Dark mode"
 					/>
-					<Dropdown onClose={() => setExpanded(false)}>
+					<Dropdown>
 						<DropdownTrigger>
 							<Button variant="bordered" onClick={() => setExpanded(!isExpanded)}>
 								{isExpanded ? <CloseIcon /> : <HamburgerIcon />}
