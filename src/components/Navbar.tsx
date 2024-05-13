@@ -37,7 +37,7 @@ export const NavbarComponent = () => {
 							Logg inn
 							</Link>
 						</ListboxItem>
-						<ListboxItem>
+						<ListboxItem key="home">
 							<Link to="/">
 								Hjem
 								</Link>
