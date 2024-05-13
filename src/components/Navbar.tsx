@@ -8,13 +8,11 @@ import {
 	DropdownTrigger,
 	Switch,
 } from "@nextui-org/react";
-import { Link, useNavigate } from "@tanstack/react-router";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 
 export const NavbarComponent = () => {
 	const mode = localStorage.getItem("theme");
-	const navigate = useNavigate();
 	const [isExpanded, setExpanded] = useState(false);
 	const [isDarkMode, setDarkMode] = useState(mode === "dark" ? true : false);
 	const { setTheme } = useTheme();
@@ -41,18 +39,13 @@ export const NavbarComponent = () => {
 					</DropdownTrigger>
 					<DropdownMenu aria-label="Dropdown menu">
 						<DropdownSection aria-label="login" showDivider>
-							<DropdownItem key="login" textValue="login" >
-								<Button fullWidth={true} variant="light" onClick={() => navigate({ to: "/auth/login" })}>Logg inn</Button>	
-							</DropdownItem>
-							<DropdownItem key="login" textValue="login">
-								<Link className="w-full flex" to="/auth/login">
-									Logg inn v2
-								</Link>
+							<DropdownItem key="login" textValue="login" href="/auth/login" >
+								Logg inn
 							</DropdownItem>
 						</DropdownSection>
 						<DropdownSection aria-label="actions">
-							<DropdownItem key="home" textValue="home" onClick={() => navigate({ to: "/" })}>
-								<Button fullWidth={true} variant="light" onClick={() => navigate({ to: "/" })}>Hjem</Button>	
+							<DropdownItem key="home" textValue="home" href="/">
+								Hjem
 							</DropdownItem>
 						</DropdownSection>
 					</DropdownMenu>
