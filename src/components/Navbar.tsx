@@ -8,7 +8,7 @@ import {
 	DropdownTrigger,
 	Switch,
 } from "@nextui-org/react";
-import { useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 
@@ -33,6 +33,9 @@ export const NavbarComponent = () => {
 					onValueChange={updateMode}
 					aria-label="Dark mode"
 				/>
+				<Button key="login" onClick={() => navigate({ to: "/auth/login" })}>
+									Logg inn
+							</Button>
 				<Dropdown onClose={() => setExpanded(false)}>
 					<DropdownTrigger>
 						<Button variant="bordered" onClick={() => setExpanded(!isExpanded)}>
@@ -43,6 +46,11 @@ export const NavbarComponent = () => {
 						<DropdownSection aria-label="login" showDivider>
 							<DropdownItem key="login" textValue="login" onClick={() => navigate({ to: "/auth/login" })}>
 									Logg inn
+							</DropdownItem>
+							<DropdownItem key="login" textValue="login">
+								<Link className="w-full flex" to="/auth/login">
+									Logg inn v2
+								</Link>
 							</DropdownItem>
 						</DropdownSection>
 						<DropdownSection aria-label="actions">
