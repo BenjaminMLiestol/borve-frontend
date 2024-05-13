@@ -58,6 +58,7 @@ export const LoginTwoComponent = () => {
 					"url(https://nextuipro.nyc3.cdn.digitaloceanspaces.com/components-images/black-background-texture-2.jpg)",
 				backgroundSize: "cover",
 				backgroundPosition: "center",
+				minHeight: "calc(100vh - 65px)"
 			}}
 		>
 			{/* Login Form */}

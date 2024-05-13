@@ -27,25 +27,27 @@ export const NavbarComponent = () => {
 					onMenuOpenChange={setExpanded}
 				>
 					<NavbarMenuToggle className="mr-2 h-6 " />
-					<NavbarMenu className="max-w-[1024px] mx-auto">
-          <NavbarMenuItem onClick={() => setExpanded(false)}>
-            <Link className="w-full" to="/auth/login">
-							Logg inn
-            </Link>
-          </NavbarMenuItem>
-          <NavbarMenuItem onClick={() => setExpanded(false)}>
-            <Link aria-current="page" className="w-full" to="/">
-              Hjem
-            </Link>
-          </NavbarMenuItem>
-        </NavbarMenu>
-				<Switch
-					color="default"
-					thumbIcon={isDarkMode ? <DarkModeIcon /> : <LightModeIcon />}
-					isSelected={isDarkMode}
-					onValueChange={updateMode}
-					aria-label="Dark mode"
-				/>
+					<NavbarMenu>
+						<div className="max-w-[1024px] px-4 sm:px-6 w-full flex flex-col gap-y-5 sm:mx-auto">
+							<NavbarMenuItem onClick={() => setExpanded(false)}>
+								<Link className="w-full hover:font-bold" to="/auth/login">
+									Logg inn
+								</Link>
+							</NavbarMenuItem>
+							<NavbarMenuItem onClick={() => setExpanded(false)}>
+								<Link aria-current="page" className="w-full hover:font-bold" to="/">
+									Hjem
+								</Link>
+							</NavbarMenuItem>
+						</div>
+        	</NavbarMenu>
+					<Switch
+						color="default"
+						thumbIcon={isDarkMode ? <DarkModeIcon /> : <LightModeIcon />}
+						isSelected={isDarkMode}
+						onValueChange={updateMode}
+						aria-label="Dark mode"
+					/>
 				</Navbar>
 	);
 };

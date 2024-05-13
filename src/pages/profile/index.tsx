@@ -35,12 +35,6 @@ export const ProfileLayout = () => {
 				<Tab key="account" title="Account">
 					<AccountSetting />
 				</Tab>
-				<Tab key="billing" title="Billing">
-					{/* <BillingSetting /> */}
-				</Tab>
-				<Tab key="team" title="Team">
-					{/* <TeamSetting /> */}
-				</Tab>
 			</Tabs>
 		</div>
 	);

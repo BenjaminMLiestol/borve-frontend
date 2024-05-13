@@ -1,19 +1,19 @@
-import { CloseIcon, DarkModeIcon, HamburgerIcon, LightModeIcon } from "@/assets/icons";
+import { DarkModeIcon, LightModeIcon } from "@/assets/icons";
 import { logout } from "@/redux/reducers/authslice";
 import { Icon } from "@iconify/react";
 import {
 	Avatar,
 	Button,
-	Dropdown,
-	DropdownItem,
-	DropdownMenu,
-	DropdownSection,
-	DropdownTrigger,
+	Divider,
+	Navbar,
+	NavbarMenu,
+	NavbarMenuItem,
+	NavbarMenuToggle,
 	ScrollShadow,
 	Spacer,
 	Switch,
 } from "@nextui-org/react";
-import { useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -118,56 +118,87 @@ export const AuthNavBarComponent = () => {
 				</div>
 			</div>
 			<div>
-				<div className="sm:hidden float-right p-5 flex flex-row">
-					<Switch
-						color="default"
-						thumbIcon={isDarkMode ? <DarkModeIcon /> : <LightModeIcon />}
-						isSelected={isDarkMode}
-						onValueChange={updateMode}
-						aria-label="Dark mode"
-					/>
-					<Dropdown>
-						<DropdownTrigger>
-							<Button variant="bordered" onClick={() => setExpanded(!isExpanded)}>
-								{isExpanded ? <CloseIcon /> : <HamburgerIcon />}
-							</Button>
-						</DropdownTrigger>
-						<DropdownMenu aria-label="Dropdown menu">
-							<DropdownSection aria-label="actions" showDivider>
-								<DropdownItem key="home" textValue="home" onClick={() => navigate({ to: "/home" })}>
-										Oversikt
-								</DropdownItem>
-								<DropdownItem key="my_customers" textValue="customers" onClick={() => navigate({ to: "/customers" })}>
-										Kunder
-								</DropdownItem>
-								
-							</DropdownSection>
-							<DropdownSection showDivider>
-							<DropdownItem key="orders" textValue="orders" onClick={() => navigate({ to: "/orders" })}>
-										Ordre
-								</DropdownItem>
-								<DropdownItem key="products" textValue="products" onClick={() => navigate({ to: "/products" })}>
-										Produkt
-								</DropdownItem>
-							</DropdownSection>
-							<DropdownSection showDivider>
-								<DropdownItem key="my_profile" textValue="profile" onClick={() => navigate({ to: "/profile" })}>
-										Profil
-								</DropdownItem>
-							</DropdownSection>
-							<DropdownSection aria-label="logout">
-								<DropdownItem
-									color="danger"
-									textValue="login"
-									className="text-danger"
-									key="logout"
-									onClick={() => handleLogout()}
-								>
-									Logg ut
-								</DropdownItem>
-							</DropdownSection>
-						</DropdownMenu>
-					</Dropdown>
+				<div className="sm:hidden">
+					<Navbar
+						isBordered
+						classNames={{
+							item: "data-[active=true]:text-primary",
+							wrapper: "px-4 sm:px-6",
+						}}
+						height="64px"
+						isMenuOpen={isExpanded}
+						onMenuOpenChange={setExpanded}
+					>
+						<NavbarMenuToggle className="mr-2 h-6 " />
+							<NavbarMenu className="max-w-[1024px] mx-auto gap-y-5">
+							<NavbarMenuItem onClick={() => setExpanded(false)}>
+								<Link className="w-full flex gap-2 items-center" to="/">
+									<Icon
+										className="text-default-400 group-data-[selected=true]:text-foreground"
+										icon="solar:home-2-linear"
+										width={24}
+									/>
+									Oversikt
+								</Link>
+							</NavbarMenuItem>
+							<NavbarMenuItem onClick={() => setExpanded(false)}>
+								<Link aria-current="page" className="w-full flex gap-2 items-center" to="/customers">
+									<Icon
+										className="text-default-400 group-data-[selected=true]:text-foreground"
+										icon="solar:add-circle-line-duotone"
+										width={24}
+									/>
+									Kunder
+								</Link>
+							</NavbarMenuItem>
+							<Divider />
+							<NavbarMenuItem onClick={() => setExpanded(false)}>
+								<Link aria-current="page" className="w-full flex gap-2 items-center" to="/orders">
+									<Icon
+										className="text-default-400 group-data-[selected=true]:text-foreground"
+										icon="solar:add-circle-line-duotone"
+										width={24}
+									/>
+									Ordre
+								</Link>
+							</NavbarMenuItem>
+							<NavbarMenuItem onClick={() => setExpanded(false)}>
+								<Link aria-current="page" className="w-full flex gap-2 items-center" to="/products">
+									<Icon
+										className="text-default-500 group-data-[selected=true]:text-foreground"
+										icon="solar:pie-chart-2-outline"
+										width={24}
+									/>
+									Produkt
+								</Link>
+							</NavbarMenuItem>
+							<Divider />
+							<NavbarMenuItem onClick={() => setExpanded(false)}>
+								<Link aria-current="page" className="w-full flex gap-2 items-center" to="/profile">
+									<Icon
+										className="text-default-500 group-data-[selected=true]:text-foreground"
+										icon="solar:settings-outline"
+										width={24}
+									/>
+									Profil
+								</Link>
+							</NavbarMenuItem>
+							<Divider />
+							<NavbarMenuItem className="text-danger" onClick={() => {
+								handleLogout();
+								setExpanded(false);
+							}}>
+								Logg ut
+							</NavbarMenuItem>
+						</NavbarMenu>
+				<Switch
+					color="default"
+					thumbIcon={isDarkMode ? <DarkModeIcon /> : <LightModeIcon />}
+					isSelected={isDarkMode}
+					onValueChange={updateMode}
+					aria-label="Dark mode"
+				/>
+				</Navbar>
 				</div>
 			</div>
 		</div>
