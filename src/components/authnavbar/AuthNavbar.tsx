@@ -44,7 +44,7 @@ export const AuthNavBarComponent = () => {
 
 	return (
 		<div>
-			<div className="sm:flex h-dvh hidden">
+			<div className="sm:flex h-dvh hidden sticky top-0">
 				<div
 					className={cn(
 						"relative hidden h-full w-0 max-w-[288px] flex-1 flex-col bg-gradient-to-b from-default-100 via-danger-100 to-secondary-100 p-6 transition-[transform,opacity,margin] duration-250 ease-in-out lg:flex lg:w-72",

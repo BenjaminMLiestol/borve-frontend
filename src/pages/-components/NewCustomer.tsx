@@ -60,7 +60,7 @@ export const NewCustomer = ({ isOpen, customers, onOpenChange }: CustomerDetails
 
 	return (
 		<Modal
-			className="max-w-[750px] w-full"
+			className="max-w-[750px] w-full mx-5"
 			isOpen={isOpen}
 			placement="top"
 			onOpenChange={onOpenChange}

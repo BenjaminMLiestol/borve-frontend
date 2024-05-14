@@ -52,7 +52,7 @@ export const LoginTwoComponent = () => {
 
 	return (
 		<div
-			className="flex w-full items-center justify-center overflow-hidden rounded-small bg-content1 p-2 sm:p-4 lg:p-8"
+			className="flex w-full items-center justify-center overflow-hidden bg-content1 p-2 sm:p-4 lg:p-8"
 			style={{
 				backgroundImage:
 					"url(https://nextuipro.nyc3.cdn.digitaloceanspaces.com/components-images/black-background-texture-2.jpg)",

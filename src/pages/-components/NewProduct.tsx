@@ -9,7 +9,7 @@ interface NewProductProps {
 export const NewProduct = ({isOpen, onOpenChange}: NewProductProps) => {
   return (
 		<Modal
-			className="max-w-[750px] w-full"
+			className="max-w-[750px] w-full mx-5"
 			isOpen={isOpen}
       placement="top"
 			onOpenChange={onOpenChange}
@@ -19,14 +19,22 @@ export const NewProduct = ({isOpen, onOpenChange}: NewProductProps) => {
         <ModalHeader className="justify-center">Opprett nytt produkt</ModalHeader>
         <Divider />
         <ModalBody>
-          <div className="flex flex-row justify-center gap-16">
-            <div className="w-2/5 flex flex-col gap-4">
+          <div className="flex flex-col justify-center gap-16">
+            <div className="sm:w-3/5 w-full flex flex-col gap-4">
             <Input
               variant="bordered"
               radius="sm"
               labelPlacement="outside"
               label="Produktnavn"
               placeholder=" "
+            />
+
+            <Textarea
+              radius="sm"
+              placeholder=" "
+              variant="bordered"
+              labelPlacement="outside"
+              label="Produktbeskrivelse"
             />
 
             <Input 
@@ -60,13 +68,7 @@ export const NewProduct = ({isOpen, onOpenChange}: NewProductProps) => {
             </div>
 
             <div className="w-2/5">
-              <Textarea
-                radius="sm"
-                placeholder=" "
-                variant="bordered"
-                labelPlacement="outside"
-                label="Produktbeskrivelse"
-              />
+              
             </div>
           </div>
         </ModalBody>

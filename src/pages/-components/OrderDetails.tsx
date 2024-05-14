@@ -18,7 +18,7 @@ export const OrderDetails = ({ order, isOpen, onOpenChange }: OrderDetailsProps)
 	console.log(order);
 	return (
 		<Modal
-			className="max-w-[750px] w-full"
+			className="max-w-[750px] w-full mx-5"
 			isOpen={isOpen}
 			onOpenChange={onOpenChange}
 			scrollBehavior="inside"
