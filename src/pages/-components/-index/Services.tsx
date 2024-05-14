@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+import { Service } from "@/types/models/landingpage";
+
 export const Services = (props: any) => {
   return (
     <div id="services" className="text-center">
@@ -13,7 +15,7 @@ export const Services = (props: any) => {
         </div>
         <div className="row">
           {props.data
-            ? props.data.map((d, i) => (
+            ? props.data.map((d: Service, i: number) => (
                 <div key={`${d.name}-${i}`} className="col-md-4">
                   {" "}
                   <i className={d.icon}></i>

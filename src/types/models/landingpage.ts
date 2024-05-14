@@ -1,38 +1,50 @@
 export interface LandingPageData {
-  Header: {
-    title: string;
-    paragraph: string;
-  };
+  Header: Header;
   About: About;
-  Gallery: {
-    title: string;
-    largeImage: string;
-    smallImage: string;
-  }[];
-  Services: {
-    icon: string;
-    name: string;
-    text: string;
-  }[];
-  Testimonials: {
-    img: string;
-    text: string;
-    name: string;
-  }[];
-  Team: {
-    img: string;
-    name: string;
-    job: string;
-  }[];
-  Contact: {
-    address: string;
-    phone: string;
-    email: string;
-    facebook: string;
-    twitter: string;
-    youtube: string;
-  };
+  Gallery: Gallery[];
+  Services: Service[];
+  Testimonials: Testimonial[];
+  Team: Teams[];
+  Contact: Contact;
   Features: Feature[]
+}
+
+export interface Header {
+  title: string;
+  paragraph: string;
+}
+
+export interface Gallery {
+  title: string;
+  largeImage: string;
+  smallImage: string;
+}
+
+export interface Service {
+  icon: string;
+  name: string;
+  text: string;
+}
+
+export interface Testimonial {
+  img: string;
+  text: string;
+  name: string;
+}
+
+export interface Teams {
+  img: string;
+  name: string;
+  job: string;
+}
+
+export interface Contact {
+  address: string;
+  phone: string;
+  email: string;
+  facebook: string;
+  twitter: string;
+  youtube: string;
 }
 
 export interface Feature {
@@ -48,6 +60,12 @@ export interface About {
 }
 
 export type Why = string[];
+
+export interface Images {
+  title: string;
+  largeImage: string;
+  smallImage: string;
+}
 
 export const initialLandingPageData: LandingPageData = {
   Header: {

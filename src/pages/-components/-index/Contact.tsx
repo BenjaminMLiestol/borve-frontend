@@ -83,7 +83,6 @@ export const Contact = (props: any) => {
                   name="message"
                   id="message"
                   className="form-control"
-                  rows="4"
                   placeholder="Message"
                   required
                   onChange={handleChange}

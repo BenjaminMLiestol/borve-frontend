@@ -1,5 +1,6 @@
+import { Images } from "@/types/models/landingpage";
 
-export const Image = ({ title, largeImage, smallImage }) => {
+export const Image = ({ title, largeImage, smallImage }: Images ) => {
   return (
     <div className="portfolio-item">
       <div className="hover-bg">

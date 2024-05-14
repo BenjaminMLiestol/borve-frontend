@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+import { Teams } from "@/types/models/landingpage";
+
 export const Team = (props: any) => {
   return (
     <div id="team" className="text-center">
@@ -13,7 +15,7 @@ export const Team = (props: any) => {
         </div>
         <div id="row">
           {props.data
-            ? props.data.map((d, i) => (
+            ? props.data.map((d: Teams, i: number) => (
                 <div key={`${d.name}-${i}`} className="col-md-3 col-sm-6 team">
                   <div className="thumbnail">
                     {" "}
