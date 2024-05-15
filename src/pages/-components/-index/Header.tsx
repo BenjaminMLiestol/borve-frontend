@@ -3,7 +3,7 @@ import { Button, Link } from "@nextui-org/react";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Header = (props: any) => {
   return (
-    <header className="w-screen flex justify-center items-center px-5"
+    <header className="flex justify-center items-center px-5"
       style={{
         minHeight: "calc(100vh - 65px)"
       }}

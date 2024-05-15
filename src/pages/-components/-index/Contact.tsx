@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Icon } from "@iconify/react/dist/iconify.js";
+import { Button, Input, Textarea } from "@nextui-org/react";
 import { useState } from "react";
 // import emailjs from "emailjs-com";
 
@@ -8,6 +10,7 @@ const initialState = {
   message: "",
 };
 export const Contact = (props: any) => {
+  const [success, setSuccess] = useState(false);
   const [{ name, email, message }, setState] = useState(initialState);
 
   const handleChange = (e: any) => {
@@ -17,6 +20,7 @@ export const Contact = (props: any) => {
   // const clearState = () => setState({ ...initialState });
   
   
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log(name, email, message);
@@ -37,90 +41,77 @@ export const Contact = (props: any) => {
   };
   return (
     <div>
-      <div id="contact" className="pt-24 gap-20 mx-auto max-w-[970px] flex flex-row justify-between">
+      <div id="contact" className="pt-24 pb-52 gap-20 mx-auto max-w-[970px] flex flex-row justify-between">
         <div>
             <div className="flex flex-col">
-              <h2 className="font-extrabold  text-4xl pb-3.5">Get In Touch</h2>
-              <div className="h-1 bg-foreground w-16" />
+              <h2 className="font-extrabold text-4xl">Ta kontakt!</h2>
+              <div className="h-1 bg-foreground w-16 my-3.5" />
               <p>
-                Please fill out the form below to send us an email and we will
-                get back to you as soon as possible.
+                Vennligst fyll ut skjemaet nedenfor for å sende oss en e-post, så vil vi
+                kontakte deg så snart som mulig.
               </p>
             </div>
-            <form name="sentMessage" onSubmit={handleSubmit}>
-              <div className="row">
-                <div className="col-md-6">
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      className="form-control"
-                      placeholder="Name"
-                      required
-                      onChange={handleChange}
-                    />
-                    <p className="help-block text-danger"></p>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="form-group">
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="form-control"
-                      placeholder="Email"
-                      required
-                      onChange={handleChange}
-                    />
-                    <p className="help-block text-danger"></p>
-                  </div>
-                </div>
+            <div className="flex flex-col gap-5 py-16">
+              <div className="flex flex-col sm:flex-row gap-5">
+                <Input
+                  size="md" 
+                  label="Navn" 
+                  radius="sm" 
+                  variant="bordered"
+                  labelPlacement="outside"
+                />
+                <Input 
+                  size="md" 
+                  radius="sm"
+                  label="Epost" 
+                  variant="bordered"
+                  labelPlacement="outside"
+                />
               </div>
-              <div className="form-group">
-                <textarea
-                  name="message"
-                  id="message"
-                  className="form-control"
-                  placeholder="Message"
-                  required
-                  onChange={handleChange}
-                ></textarea>
-                <p className="help-block text-danger"></p>
-              </div>
-              <div id="success"></div>
-              <button type="submit" className="btn btn-custom btn-lg">
-                Send Message
-              </button>
-            </form>
+              <Textarea
+                label="Beskjed"
+                radius="sm"
+                size="md"
+                minRows={8}
+                maxRows={8}
+                variant="bordered"
+                labelPlacement="outside"
+              />
+            </div>
+            <Button
+              variant={success ? 'solid' : 'bordered'}
+              radius="sm"
+              color={success ? 'success' : 'default'}
+              onClick={() => setSuccess(!success)}
+            >
+              Send
+            </Button>
 
         </div>
-          <div>
-            <div className="contact-item">
-              <h3>Contact Info</h3>
-              <p>
-                <span>
-                  <i className="fa fa-map-marker"></i> Address
-                </span>
-                {props.data ? props.data.address : "loading"}
-              </p>
+          <div className="flex flex-col gap-5">
+            <div>
+              <h3 className="text-xl font-normal pb-11">Kontaktinfo</h3>
+              <div className="flex flex-row gap-2 items-center">
+                <Icon icon="cil:location-pin"></Icon>
+                <p>Adresse</p>
+              </div>
+              <p className="text-sm opacity-85">{props.data ? props.data.address : "loading"}</p>
             </div>
-            <div className="contact-item">
-              <p>
-                <span>
-                  <i className="fa fa-phone"></i> Phone
-                </span>{" "}
-                {props.data ? props.data.phone : "loading"}
-              </p>
+
+            <div className="flex flex-col gap-2">
+              <div className="flex flex-row gap-2 items-center">
+                <Icon icon="ic:baseline-phone"></Icon>
+                <p>Telefon</p>
+              </div>
+              <a className="text-sm opacity-85" href={`tel:${props.data.phone}`}>{props.data ? props.data.phone : "loading"}</a>
             </div>
-            <div className="contact-item">
-              <p>
-                <span>
-                  <i className="fa fa-envelope-o"></i> Email
-                </span>{" "}
-                {props.data ? props.data.email : "loading"}
-              </p>
+
+            <div className="flex flex-col gap-2">
+              <div className="flex flex-row gap-2 items-center">
+                <Icon icon="ic:baseline-email"></Icon>
+                <p>Epost</p>
+              </div>
+              <a className="text-sm opacity-85" href={`mailto:${props.data.email}`}>{props.data ? props.data.email : "loading"}</a>
             </div>
           </div>
           {/* <div className="col-md-12">
@@ -147,7 +138,7 @@ export const Contact = (props: any) => {
             </div>
           </div> */}
         </div>
-      <div id="footer">
+      <div id="footer" className="pb-10">
         <div className="container text-center">
           <p>
             &copy; 2023 BBL
