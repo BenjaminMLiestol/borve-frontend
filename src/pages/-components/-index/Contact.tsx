@@ -4,41 +4,41 @@ import { Button, Input, Textarea } from "@nextui-org/react";
 import { useState } from "react";
 // import emailjs from "emailjs-com";
 
-const initialState = {
-  name: "",
-  email: "",
-  message: "",
-};
+// const initialState = {
+//   name: "",
+//   email: "",
+//   message: "",
+// };
 export const Contact = (props: any) => {
   const [success, setSuccess] = useState(false);
-  const [{ name, email, message }, setState] = useState(initialState);
+  // const [{ name, email, message }, setState] = useState(initialState);
 
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    setState((prevState) => ({ ...prevState, [name]: value }));
-  };
+  // const handleChange = (e: any) => {
+  //   const { name, value } = e.target;
+  //   setState((prevState) => ({ ...prevState, [name]: value }));
+  // };
   // const clearState = () => setState({ ...initialState });
   
   
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    console.log(name, email, message);
+  // const handleSubmit = (e: any) => {
+  //   e.preventDefault();
+  //   console.log(name, email, message);
     
-    {/* replace below with your own Service ID, Template ID and Public Key from your EmailJS account */ }
+  //   {/* replace below with your own Service ID, Template ID and Public Key from your EmailJS account */ }
     
-    // emailjs
-    //   .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
-    //   .then(
-    //     (result) => {
-    //       console.log(result.text);
-    //       clearState();
-    //     },
-    //     (error) => {
-    //       console.log(error.text);
-    //     }
-    //   );
-  };
+  //   // emailjs
+  //   //   .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
+  //   //   .then(
+  //   //     (result) => {
+  //   //       console.log(result.text);
+  //   //       clearState();
+  //   //     },
+  //   //     (error) => {
+  //   //       console.log(error.text);
+  //   //     }
+  //   //   );
+  // };
   return (
     <div>
       <div id="contact" className="pt-24 pb-52 gap-20 mx-auto max-w-[1170px] flex flex-col-reverse sm:flex-row justify-between px-5 sm:px-0">
