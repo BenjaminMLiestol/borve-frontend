@@ -4,7 +4,7 @@ import { Testimonial } from "@/types/models/landingpage";
 
 export const Testimonials = (props: any) => {
   return (
-    <div id="testimonials">
+    <div id="testimonials" className="py-24 mx-auto max-w-[1170px] px-5 sm:px-0">
       <div className="container">
         <div className="section-title text-center">
           <h2>What our clients say</h2>

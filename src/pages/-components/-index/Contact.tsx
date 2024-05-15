@@ -41,10 +41,10 @@ export const Contact = (props: any) => {
   };
   return (
     <div>
-      <div id="contact" className="pt-24 pb-52 gap-20 mx-auto max-w-[970px] flex flex-row justify-between">
+      <div id="contact" className="pt-24 pb-52 gap-20 mx-auto max-w-[1170px] flex flex-col-reverse sm:flex-row justify-between px-5 sm:px-0">
         <div>
             <div className="flex flex-col">
-              <h2 className="font-extrabold text-4xl">Ta kontakt!</h2>
+              <h2 className="font-bold text-4xl">Ta kontakt!</h2>
               <div className="h-1 bg-foreground w-16 my-3.5" />
               <p>
                 Vennligst fyll ut skjemaet nedenfor for å sende oss en e-post, så vil vi
@@ -139,7 +139,7 @@ export const Contact = (props: any) => {
           </div> */}
         </div>
       <div id="footer" className="pb-10">
-        <div className="container text-center">
+        <div className="text-center">
           <p>
             &copy; 2023 BBL
           </p>

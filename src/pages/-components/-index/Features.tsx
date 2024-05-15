@@ -6,10 +6,10 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 export const Features = (props: any) => {
   return (
     <div id="features"
-      className="pt-20 flex flex-col gap-20 mx-auto max-w-[970px]"
+      className="pt-20 flex flex-col gap-20 mx-auto max-w-[1170px] px-5 sm:px-0"
     >
       <div>
-        <h2 className="font-extrabold text-center text-4xl pb-3.5">Features</h2>
+        <h2 className="font-bold text-center text-4xl pb-3.5">Features</h2>
         <div className="h-1 bg-foreground w-16 mx-auto" />
       </div>
       

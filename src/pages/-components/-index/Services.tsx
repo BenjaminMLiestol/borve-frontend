@@ -4,7 +4,7 @@ import { Service } from "@/types/models/landingpage";
 
 export const Services = (props: any) => {
   return (
-    <div id="services" className="text-center">
+    <div id="services" className="py-24 mx-auto max-w-[1170px] text-center px-5 sm:px-0">
       <div className="container">
         <div className="section-title">
           <h2>Our Services</h2>

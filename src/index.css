@@ -20,26 +20,6 @@
   background: #ebdfe7;
 }
 
-@media screen and (max-width: 400px) {
-  #features {
-    padding: 20px;
-    width: 111%;
-  }
-
-  #about,
-  #services,
-  #testimonials,
-  #team,
-  #contact,
-  #footer {
-    width: 111%;
-  }
-
-  #portfolio {
-    width: 110%;
-  }
-}
-
 html {
   scroll-behavior: smooth;
 }

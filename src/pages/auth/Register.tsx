@@ -207,7 +207,7 @@ export const CreateAccountComponent = () => {
 	);
 };
 
-export const Route = createFileRoute("/auth/register")({
+export const Route = createFileRoute("/auth/Register")({
 	component: CreateAccountComponent,
 	beforeLoad: async () => {
 		const isAuthenticated =
